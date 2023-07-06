@@ -1,10 +1,16 @@
-
+using namespace std;
+#include "string"
+class Calculate
+{
+public:
+	int getLengthScore(string p1, string p2)
+	{
+		return 60;
+	}
+};
 class Sentence
 {
 public:
-	int getLengthScore(int p1, int p2)
-	{
-		return 0;
-	}
+	
 private:
 };
