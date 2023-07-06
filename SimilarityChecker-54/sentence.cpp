@@ -24,12 +24,12 @@ public:
 		int long_string_digit = p1.size() >= p2.size() ? p1.size() : p2.size();
 		int short_string_digit = p1.size() >= p2.size() ? p2.size() : p1.size();
 		int gap = long_string_digit - short_string_digit;
-		return (1 - float(float(gap) / float(short_string_digit))) * 60;
+		return (1 - float(float(gap) / float(short_string_digit))) * SCORE_FOR_FULL_SUCCESS;
 	}
 	int getLengthScore(string p1, string p2)
 	{
 		if (p1.size() == p2.size())
-			return 60;
+			return SCORE_FOR_FULL_SUCCESS;
 		if ((p1.size() >= 2 * p2.size()) || (p2.size() >= 2 * p1.size()))
 			return 0;
 
@@ -38,4 +38,5 @@ public:
 	}
 private:
 	Sentence sen;
+	int SCORE_FOR_FULL_SUCCESS = 60;
 };
