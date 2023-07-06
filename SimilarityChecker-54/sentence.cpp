@@ -23,6 +23,9 @@ public:
 	{
 		if (p1.size() == p2.size())
 			return 60;
+		if ((p1.size() >= 2 * p2.size()) || (p2.size() >= 2 * p1.size()))
+			return 0;
+		return -1;
 	}
 private:
 	Sentence sen;
