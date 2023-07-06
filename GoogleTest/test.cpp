@@ -20,3 +20,12 @@ TEST(SentenceTestFixture, lengthCheck0Case) {
 	int ret = cal.getLengthScore(input1, input2);
 	EXPECT_EQ(0, ret);
 }
+
+TEST(SentenceTestFixture, lengthCheckGetPartialScoreCase) {
+	string input1 = "AA";
+	string input2 = "AAE";
+	Sentence sen(input1, input2);
+	Calculate cal(sen);
+	int ret = cal.getPartialScore(input1, input2);
+	EXPECT_EQ(30, ret);
+}
