@@ -31,3 +31,21 @@ TEST_F(SentenceTestFixture, lengthCheckGetPartialScoreCase2) {
 	EXPECT_EQ(int(20), ceil(cal.getLengthScore()));
 	//EXPECT_EQ(int(20), ret2);
 }
+
+
+TEST_F(SentenceTestFixture, 01_AlphabetDiffLoc) {
+	cal.setStrings(string("ASD"), string("DSA"));
+	EXPECT_EQ(40, cal.getAlphabetScore());
+}
+TEST_F(SentenceTestFixture, 02_AlphabetAllDifferentTest) {
+	cal.setStrings(string("A"), string("BB"));
+	EXPECT_EQ(0, cal.getAlphabetScore());
+}
+TEST_F(SentenceTestFixture, 03_AlphabetAllSameCatTest) {
+	cal.setStrings(string("AAABB"), string("BA"));
+	EXPECT_EQ(40, cal.getAlphabetScore());
+}
+TEST_F(SentenceTestFixture, 04_AlphabetPartialSameTest) {
+	cal.setStrings(string("AA"), string("AAE"));
+	EXPECT_EQ(20, cal.getAlphabetScore());
+}
