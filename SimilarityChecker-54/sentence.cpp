@@ -5,8 +5,6 @@ using namespace std;
 class Calculate
 {
 public:
-	/*explicit Calculate(string _p1, string _p2) :
-		p1(_p1), p2(_p2) {}*/
 	void setStrings(string _p1, string _p2)
 	{
 		p1 = _p1; p2 = _p2;
@@ -55,8 +53,6 @@ public:
 	
 	int getTotalCnt()
 	{
-		/*vector<char> candidates_a = putAlphabetToVector(p1);
-		vector<char> candidates_b = putAlphabetToVector(p2);*/
 		vector<char> total = putAlphabetToVector(p1 + p2);
 		return total.size();
 	}
