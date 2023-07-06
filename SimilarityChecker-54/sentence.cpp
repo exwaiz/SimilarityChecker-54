@@ -1,16 +1,29 @@
 using namespace std;
 #include "string"
-class Calculate
-{
-public:
-	int getLengthScore(string p1, string p2)
-	{
-		return 60;
-	}
-};
+
 class Sentence
 {
 public:
-	
+	explicit Sentence(string p1, string p2) :
+		string1(p1), string2(p2), score(0){}
+
+	string string1;
+	string string2;
+	int score;
 private:
+	
+};
+
+class Calculate
+{
+public:
+	explicit Calculate(Sentence _sen) :
+		sen(_sen) { }
+	int getLengthScore(string p1, string p2)
+	{
+		if (p1.size() == p2.size())
+			return 60;
+	}
+private:
+	Sentence sen;
 };
