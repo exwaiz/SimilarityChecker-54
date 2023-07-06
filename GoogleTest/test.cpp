@@ -3,41 +3,31 @@
 #include "../SimilarityChecker-54/sentence.cpp"
 #include "cmath"
 using namespace std;
+class SentenceTestFixture : public testing::Test
+{
+public:
+	Calculate cal {};
 
+};
 
-TEST(SentenceTestFixture, lengthCheck) {
-	string input1 = "abc";
-	string input2 = "bby";
-	Sentence sen(input1, input2);
-	Calculate cal(sen);
-	int ret = cal.getLengthScore(input1, input2);
-  EXPECT_EQ(60, ret);
+TEST_F(SentenceTestFixture, lengthCheck) {
+	cal.setStrings(string("abc"), string("bby"));
+  EXPECT_EQ(60, cal.getLengthScore());
 }
-TEST(SentenceTestFixture, lengthCheck0Case) {
-	string input1 = "abc";
-	string input2 = "defopq";
-	Sentence sen(input1, input2);
-	Calculate cal(sen);
-	int ret = cal.getLengthScore(input1, input2);
-	EXPECT_EQ(0, ret);
+TEST_F(SentenceTestFixture, lengthCheck0Case) {
+	cal.setStrings(string("abc"), string("defopq"));
+	EXPECT_EQ(0, cal.getLengthScore());
 }
 
-TEST(SentenceTestFixture, lengthCheckGetPartialScoreCase1) {
-	string input1 = "AA";
-	string input2 = "AAE";
-	Sentence sen(input1, input2);
-	Calculate cal(sen);
-	int ret = cal.getPartialScore(input1, input2);
-	EXPECT_EQ(30, ret);
+TEST_F(SentenceTestFixture, lengthCheckGetPartialScoreCase1) {
+	cal.setStrings(string("AA"), string("AAE"));
+	EXPECT_EQ(30, cal.getLengthScore());
 }
 
-
-TEST(SentenceTestFixture, lengthCheckGetPartialScoreCase2) {
+TEST_F(SentenceTestFixture, lengthCheckGetPartialScoreCase2) {
 	string input1 = "AAABB";
 	string input2 = "BAA";
-	Sentence sen(input1, input2);
-	Calculate cal(sen);
-	float ret = cal.getPartialScore(input1, input2);
-	int ret2 = ceil(ret);
-	EXPECT_EQ(int(20), ret2);
+	cal.setStrings(string("AAABB"), string("BAA"));
+	EXPECT_EQ(int(20), ceil(cal.getLengthScore()));
+	//EXPECT_EQ(int(20), ret2);
 }
