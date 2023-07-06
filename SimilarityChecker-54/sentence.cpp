@@ -19,7 +19,7 @@ class Calculate
 public:
 	explicit Calculate(Sentence _sen) :
 		sen(_sen) { }
-	int getPartialScore(string p1, string p2)
+	float getPartialScore(string p1, string p2)
 	{
 		int long_string_digit = p1.size() >= p2.size() ? p1.size() : p2.size();
 		int short_string_digit = p1.size() >= p2.size() ? p2.size() : p1.size();
